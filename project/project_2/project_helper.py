@@ -47,13 +47,13 @@ def _generate_second_tetration_stock(stock_symbol, dates):
         'base_line': np.power(linear_line, linear_line)})
 
     sector_stock['base_line'] = sector_stock['base_line'] + all_noise[0]*sector_stock['base_line']
-    sector_stock['adj_open'] = sector_stock['base_line'] + all_noise[1]*sector_stock['base_line']
+    sector_stock['adj_open']  = sector_stock['base_line'] + all_noise[1]*sector_stock['base_line']
     sector_stock['adj_close'] = sector_stock['base_line'] + all_noise[2]*sector_stock['base_line']
-    sector_stock['adj_high'] = sector_stock['base_line'] + all_noise[3]*sector_stock['base_line']
-    sector_stock['adj_low'] = sector_stock['base_line'] + all_noise[4]*sector_stock['base_line']
+    sector_stock['adj_high']  = sector_stock['base_line'] + all_noise[3]*sector_stock['base_line']
+    sector_stock['adj_low']   = sector_stock['base_line'] + all_noise[4]*sector_stock['base_line']
 
     sector_stock['adj_high'] = sector_stock[['adj_high', 'adj_open', 'adj_close']].max(axis=1)
-    sector_stock['adj_low'] = sector_stock[['adj_low', 'adj_open', 'adj_close']].min(axis=1)
+    sector_stock['adj_low']  = sector_stock[['adj_low',  'adj_open', 'adj_close']].min(axis=1)
 
     return sector_stock.drop(columns='base_line')
 
